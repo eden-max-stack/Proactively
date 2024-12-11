@@ -44,17 +44,6 @@ app.use('/employees', require('./routes/api/employees'));
 app.use('/userdetails', require('./routes/api/userDetails'));
 app.use('/speakerprofile', require('./routes/api/speakerProfile'));
 
-app.all('*', (req, res) => {
-    res.status(404);
-    if (req.accepts('html')) {
-        res.sendFile(path.join(__dirname, 'views', '404.html'));
-    } else if (req.accepts('json')) {
-        res.json({ "error": "404 Not Found" });
-    } else {
-        res.type('txt').send("404 Not Found");
-    }
-});
-
 // custom error handling 
 app.use(errorHandler);
 
