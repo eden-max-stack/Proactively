@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Home.css';
 
+
 const Home: React.FC = () => {
   const [data, setData] = useState<any[]>([]); // Speaker profiles
   const [error, setError] = useState<string | null>(null);

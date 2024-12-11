@@ -1,4 +1,5 @@
 const db = require('../config/db');  // Assuming your DB connection setup is here
+const nodemailer = require("nodemailer");
 
 // Function to get bookings for the current date
 const getBookings = async (req, res) => {
@@ -46,6 +47,35 @@ const bookSession = async (req, res) => {
     const bookingQuery = `INSERT INTO bookings (user_id, speaker_id, session_time, booking_date) VALUES (?, ?, ?, CURDATE())`;
     console.log(userId, speakerId, sessionTime);
     await db.execute(bookingQuery, [userId, speakerId, sessionTime]);
+
+    // fetching email ID to send emails regarding booked sessions
+    const userEmailQuery = `SELECT email FROM users WHERE username = "${userId}"`;
+    const speakerEmailQuery = `SELECT email FROM users WHERE username = "${speakerId}"`;
+
+    var userEmail = await db.execute(userEmailQuery);
+    userEmail = userEmail[0][0].email;
+    console.log(userEmail);
+    var speakerEmail = await db.execute(speakerEmailQuery);
+    speakerEmail = speakerEmail[0][0].email;
+    console.log(speakerEmail);
+
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.ethereal.email',
+      port: 587,
+      auth: {
+          user: 'marshall30@ethereal.email',
+          pass: '3QsaNNFqU8SS8vCspM'
+      }
+  });
+
+    const info = await transporter.sendMail({
+      from: '"Marshall Carroll 👻" <marshall30@ethereal.email>', // sender address
+      to: `${userEmail}, ${speakerEmail}`, // list of receivers
+      subject: "Hello. your session is booked", // Subject line
+      text: "Hello world?", 
+    });
+
+    console.log("Message sent: %s", info.messageId); // email sent to user and speaker
 
     res.json({ message: 'Booking successful' });
 };
