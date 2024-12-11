@@ -43,10 +43,10 @@ Proactively is a web application designed to facilitate the booking of speakers 
    npm install
    ```
 
-4. Navigate to the frontend directory:
+4. Navigate to the directory:
 
    ```bash
-   cd ../proactivelyReactNative
+   cd ../proactivelyBackend
    ```
 
 5. Install frontend dependencies:
