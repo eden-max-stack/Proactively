@@ -40,7 +40,6 @@ app.use('/home', require('./routes/api/speakerListings'));
 app.use(verifyJWT);
 app.use('/authCheck', require('./routes/authCheck'));
 app.use('/bookings', require('./routes/api/bookings'));
-app.use('/employees', require('./routes/api/employees'));
 app.use('/userdetails', require('./routes/api/userDetails'));
 app.use('/speakerprofile', require('./routes/api/speakerProfile'));
 

@@ -4,8 +4,8 @@ require('dotenv').config();
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',          // your MySQL username
-    password: process.env.DATABASE_PWD,  // your MySQL password
-    database: process.env.DATABASE_NAME
+    password: 'Detained_Luxury3',  // your MySQL password
+    database: 'proactively'
 });
 
 db.connect((err) => {
