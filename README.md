@@ -28,7 +28,7 @@ Proactively is a web application designed to facilitate the booking of speakers 
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/eden-max-stack/Proactively
    ```
 
 2. Navigate to the backend directory:
@@ -43,31 +43,25 @@ Proactively is a web application designed to facilitate the booking of speakers 
    npm install
    ```
 
-4. Navigate to the directory:
-
-   ```bash
-   cd ../proactivelyBackend
-   ```
-
-5. Install frontend dependencies:
+4. Install frontend dependencies:
 
    ```bash
    npm install
    ```
 
-6. Set up the database:
+5. Set up the database:
 
    - Ensure MySQL is installed and running.
    - Create a database and configure connection details in the backend.
 
-7. Start the application:
+6. Start the application:
    - Backend:
      ```bash
-     npm start
+     node server.js
      ```
    - Frontend:
      ```bash
-     npm start
+     npm run dev
      ```
 
 ---
@@ -90,6 +84,7 @@ API endpoints are tracked and documented using Postman. You can find the Postman
 - Fix refresh token generation logic.
 - Enhance GUI for better user experience.
 - Add additional features like notifications and session reminders.
+- Add features to set Google Calendar Events for both user and speaker.
 
 ---
 
