@@ -49,17 +49,15 @@ const bookSession = async (req, res) => {
     await db.execute(bookingQuery, [userId, speakerId, sessionTime]);
 
     // fetching email ID to send emails regarding booked sessions
-    const userEmailQuery = `SELECT email FROM users WHERE username = "${userId}"`;
-    const speakerEmailQuery = `SELECT email FROM users WHERE username = "${speakerId}"`;
+    const usernameEmailQuery = `SELECT email, username FROM users WHERE username = ?`;
+    const userEmailQuery = await db.execute(usernameEmailQuery, [userId]);
+    const speakerEmailQuery = await db.execute(usernameEmailQuery, [speakerId]);
 
-    var userEmail = await db.execute(userEmailQuery);
-    userEmail = userEmail[0][0].email;
-    console.log(userEmail);
-    var speakerEmail = await db.execute(speakerEmailQuery);
-    speakerEmail = speakerEmail[0][0].email;
-    console.log(speakerEmail);
+    const userEmail = userEmailQuery[0][0].email;
+    const speakerEmail = speakerEmailQuery[0][0].email;
 
-    const transporter = nodemailer.createTransport({
+    const currentDate = new Date();
+    const transporter = nodemailer.createTransport({ // temporary email user created to send emails
       host: 'smtp.ethereal.email',
       port: 587,
       auth: {
@@ -69,10 +67,14 @@ const bookSession = async (req, res) => {
   });
 
     const info = await transporter.sendMail({
-      from: '"Marshall Carroll 👻" <marshall30@ethereal.email>', // sender address
+      from: '"Proactively 👻" <marshall30@ethereal.email>', // sender address
       to: `${userEmail}, ${speakerEmail}`, // list of receivers
-      subject: "Hello. your session is booked", // Subject line
-      text: "Hello world?", 
+      subject: `Hello, Your session has been booked successfully!`, // Subject line
+      text: `Hello, ${userId}. Your speaker session with renowned speaker ${speakerId} has been booked succesfully!.
+              
+             Session timings: ${sessionTime} on ${currentDate.toLocaleString()}.
+             
+             Check your Google Calendar for more!`, 
     });
 
     console.log("Message sent: %s", info.messageId); // email sent to user and speaker
