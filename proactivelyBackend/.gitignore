@@ -25,3 +25,6 @@ dist-ssr
 
 .env
 node_modules
+
+credentials.json
+token.json
