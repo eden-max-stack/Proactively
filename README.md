@@ -12,6 +12,8 @@ Proactively is a web application designed to facilitate the booking of speakers 
 - **Modular Code Structure:** Implemented using the MVC (Model-View-Controller) pattern for modularity and maintainability.
 - **GUI Support:** A simple front-end GUI built with React TypeScript for interacting with the backend.
 - **Postman Integration:** Backend APIs are fully documented and tested using Postman collections.
+- **Email Notifications:** Upon session confirmation, an email notification is sent to both parties, stating the session date and timings.
+- **Google Calendar Integration:** Sessions are tracked onto both parties' Google Calendars when confirmed.
 
 ---
 
@@ -83,8 +85,6 @@ API endpoints are tracked and documented using Postman. You can find the Postman
 
 - Fix refresh token generation logic.
 - Enhance GUI for better user experience.
-- Add additional features like notifications and session reminders.
-- Add features to set Google Calendar Events for both user and speaker.
 
 ---
 
@@ -103,9 +103,3 @@ This project is licensed under the [MIT License](LICENSE).
 ## Acknowledgements
 
 This project was developed as part of the Proactively internship application backend assignment.
-
----
-
-## Contact
-
-For queries or suggestions, please contact the project owner through GitHub.
