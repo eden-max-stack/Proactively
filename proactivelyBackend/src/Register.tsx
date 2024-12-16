@@ -79,12 +79,13 @@ const Register: React.FC = () => {
           required
         />
         
-        <FormControl>
+        <FormControl className='role-form-control'>
         <FormLabel id="demo-radio-buttons-group-label">Role:</FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="female"
           name="radio-buttons-group"
+          className='role-radio-group'
           value={role}
           onChange={(e) => setRole(e.target.value)}
         >

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Register.css';
+import './Auth.css';
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -47,9 +48,9 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '400px', margin: 'auto' }}>
+    <div >
       <h2>Login</h2>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
         <input
           id="username"
@@ -66,7 +67,7 @@ const Register: React.FC = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" style={{ marginTop: '10px', padding: '10px', background: '#4CAF50', color: 'white' }}>
+        <button type="submit">
           Login
         </button>
       </form>

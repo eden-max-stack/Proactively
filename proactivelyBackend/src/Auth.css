@@ -1,0 +1,72 @@
+/* Auth.css */
+
+/* Center the entire container */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  /* Style the form container */
+  form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Headings for form */
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Labels styling */
+  label {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  /* Inputs styling */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Submit button styling */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Message styling */
+  p {
+    color: #d9534f;
+    margin-top: 10px;
+  }
+  
